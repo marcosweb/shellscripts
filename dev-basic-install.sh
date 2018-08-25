@@ -100,6 +100,9 @@ install_all() {
 
 # Init
 
+[ ! -x "$(command -v curl)" ] && sudo apt install curl
+
+
 [ "$1" = "sublime" ]    && install_sublime
 [ "$1" = "chrome" ]     && install_chrome
 [ "$1" = "vscode" ]     && install_vscode
