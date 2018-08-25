@@ -37,11 +37,14 @@ help() {
   echo '|   [*] nvm .........: NVM '
   echo '|   [*] all .........: Todos os pacotes acima '
   echo '|'
+  echo '| Se tiver problemas com sudo ao rodar o script, use:'
+  echo '|   sudo bash ./dev-basic-install.sh all'
   echo '--------------------------------------------------------'
   exit 1
 }
 
 [ ! $1 ] && help
+[ "$1" = '--help' ] && help
 
 install_chrome() {
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
