@@ -97,15 +97,15 @@ install_all() {
 
 # Init
 
-[ "$1" = "sublime"]    && install_sublime
-[ "$1" = "chrome"]     && install_chrome
-[ "$1" = "vscode"]     && install_vscode
-[ "$1" = "virtualbox"] && install_virtualbox
-[ "$1" = "dropbox"]    && insatll_dropbox
-[ "$1" = "teamviewer"] && install_teamviewer
-[ "$1" = "git"]        && msg "Instalando Git..." && apt-get install git 
-[ "$1" = "nvm"]        && msg "Istalando NVM..."  && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-[ "$1" = "all"]        && install_all
+[ "$1" = "sublime" ]    && install_sublime
+[ "$1" = "chrome" ]     && install_chrome
+[ "$1" = "vscode" ]     && install_vscode
+[ "$1" = "virtualbox" ] && install_virtualbox
+[ "$1" = "dropbox" ]    && insatll_dropbox
+[ "$1" = "teamviewer" ] && install_teamviewer
+[ "$1" = "git" ]        && msg "Instalando Git..." && apt-get install git 
+[ "$1" = "nvm" ]        && msg "Istalando NVM..."  && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+[ "$1" = "all" ]        && install_all
 
 source ~/.bashrc 
 source ~/.profile 
