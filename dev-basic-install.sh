@@ -9,6 +9,40 @@ msg() {
   echo -e " [*] $1\n"
 }
 
+help() {
+  echo '--------------------------------------------------------'
+  echo '| Script para instalar pacotes essenciais para desenvolvedores'
+  echo '| A princípio roda apenas em Linux (Debian e Ubuntu)'
+  echo '|'
+  echo '| Importante!'
+  echo '| Torne o arquivo executável antes de utiliza-lo, com o comando:'
+  echo '|'
+  echo '|   chmod +x dev-basic-install.sh'
+  echo '|'  
+  echo '|'
+  echo '| Sintaxe: '
+  echo '|   ./dev-basic-install.sh [nome-do-pacote]'
+  echo '|'
+  echo '| Exemplo:'
+  echo '|   ./dev-basic-install.sh dropbox'
+  echo '|'
+  echo '| Pacotes disponíveis para instalação: '
+  echo '|   [*] sublime .....: Sublime Text 3 '
+  echo '|   [*] chrome ......: Google Chrome '
+  echo '|   [*] vscode ......: Visual Studio Code '
+  echo '|   [*] virtualbox ..: Virtual Box '
+  echo '|   [*] dropbox .....: DropboxVirtual Box '
+  echo '|   [*] teamviewer ..: Teamviewer '
+  echo '|   [*] git .........: Git '
+  echo '|   [*] nvm .........: NVM '
+  echo '|   [*] all .........: Todos os pacotes acima '
+  echo '|'
+  echo '--------------------------------------------------------'
+  exit 1
+}
+
+[ ! $1 ] && help
+
 install_chrome() {
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   dpkg -i google-chrome-stable_current_amd64.deb
@@ -50,19 +84,32 @@ install_chrome_remote_desktop() {
 
 }
 
+insatll_dropbox() {
+  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+  ~/.dropbox-dist/dropboxd
+}
 
+install_all() {
+  install_sublime
+  install_chrome
+  install_vscode
+  install_virtualbox
+  install_teamviewer
+  msg "Instalando Git..." && apt-get install git
+  msg "Istalando NVM..."  && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash 
+}
 
 # Init
 
-install_vscode
-install_sublime
-install_virtualbox
-
-msg "Instalando Git..."
-apt-get install git
-
-msg "Istalando NVM..."
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+[ "$1" = "sublime"]    && install_sublime
+[ "$1" = "chrome"]     && install_chrome
+[ "$1" = "vscode"]     && install_vscode
+[ "$1" = "virtualbox"] && install_virtualbox
+[ "$1" = "dropbox"]    && insatll_dropbox
+[ "$1" = "teamviewer"] && install_teamviewer
+[ "$1" = "git"]        && msg "Instalando Git..." && apt-get install git 
+[ "$1" = "nvm"]        && msg "Istalando NVM..."  && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+[ "$1" = "all"]        && install_all
 
 source ~/.bashrc 
 source ~/.profile 
