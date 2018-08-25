@@ -80,10 +80,6 @@ install_teamviewer() {
   dpkg -i https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 }
 
-install_chrome_remote_desktop() {
-
-}
-
 insatll_dropbox() {
   cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
   ~/.dropbox-dist/dropboxd
