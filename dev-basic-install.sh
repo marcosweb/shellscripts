@@ -75,12 +75,11 @@ install_virtualbox() {
   msg "Instalando virtualbox..."
   wget -q https://download.virtualbox.org/virtualbox/5.2.18/virtualbox-5.2_5.2.18-124319~Debian~stretch_amd64.deb
   sudo dpkg -i https://download.virtualbox.org/virtualbox/5.2.18/virtualbox-5.2_5.2.18-124319~Debian~stretch_amd64.deb
-
 }
 
 install_teamviewer() {
   wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-  dpkg -i https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+  sudo dpkg -i https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 }
 
 insatll_dropbox() {
