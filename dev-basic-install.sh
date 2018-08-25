@@ -10,7 +10,7 @@ msg() {
 }
 
 help() {
-  echo '--------------------------------------------------------'
+  echo '------------------------------------------------------------------------'
   echo '| Script para instalar pacotes essenciais para desenvolvedores'
   echo '| A princípio roda apenas em Linux (Debian e Ubuntu)'
   echo '|'
@@ -39,7 +39,11 @@ help() {
   echo '|'
   echo '| Se tiver problemas com sudo ao rodar o script, use:'
   echo '|   sudo bash ./dev-basic-install.sh all'
-  echo '--------------------------------------------------------'
+  echo '|'
+  echo '| Se for solicitado cd-rom de instalacao do debian, abra o arquivo'
+  echo '| abra o arquivo /etc/apt/sources.list e comente a linha que inicia' 
+  echo '| com "#deb cdrom:[Debian GNU..."'
+  echo '------------------------------------------------------------------------'
   exit 1
 }
 
